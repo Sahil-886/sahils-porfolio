@@ -76,11 +76,13 @@ if (modal) {
   const closeBtn = modal.querySelector('.close');
 
   openBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
+    const openModal = () => {
       packageField.value = btn.dataset.package;
       modal.classList.add('open');
       document.getElementById('enq-name').focus();
-    });
+    };
+    btn.addEventListener('click', openModal);
+    btn.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(); } });
   });
   function closeModal(){ modal.classList.remove('open'); }
   closeBtn.addEventListener('click', closeModal);
