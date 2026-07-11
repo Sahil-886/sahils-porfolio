@@ -480,7 +480,7 @@ details summary:focus-visible{outline:2px solid var(--brass);outline-offset:2px;
   .page-hero{padding:56px 0 40px}
   .sec-head{margin-bottom:28px}
   .audience{padding:48px 0 16px}
-  .toggle{flex-direction:column;border-radius:var(--radius);gap:0;width:100%;max-content;max-width:320px}
+  .toggle{flex-direction:column;border-radius:var(--radius);gap:0;width:100%;max-width:320px}
   .toggle button{border-radius:10px;font-size:.85rem;min-height:44px}
   .hero h1{font-size:clamp(1.9rem,7vw,2.4rem)}
   .hero .sub{font-size:.98rem;margin-top:16px}
