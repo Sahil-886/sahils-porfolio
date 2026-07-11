@@ -153,6 +153,7 @@ section{padding:108px 0;border-bottom:1px solid var(--line)}
   padding:32px;display:flex;flex-direction:column;gap:14px;
   transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
   will-change:transform;
+  scroll-margin-top:90px;
 }
 .card:hover{
   transform:translateY(-4px);border-color:var(--brass);
