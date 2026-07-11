@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sahil Makhamale — Web Developer & App Builder, Pune</title>
+<meta name="description" content="Freelance web developer and app builder in Pune. Websites, mobile apps, AI integration, and data analytics for businesses and teams.">
+<link rel="canonical" href="https://sahilmakhamale.com/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Sahil Makhamale — Web Developer & App Builder, Pune">
+<meta property="og:description" content="Freelance web developer and app builder in Pune. Websites, mobile apps, AI integration, and data analytics for businesses and teams.">
+<meta property="og:url" content="https://sahilmakhamale.com/">
+<meta property="og:image" content="https://sahilmakhamale.com/assets/og-cover.jpg">
+<meta property="og:site_name" content="Sahil Makhamale">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sahil Makhamale — Web Developer & App Builder, Pune">
+<meta name="twitter:description" content="Freelance web developer and app builder in Pune. Websites, mobile apps, AI integration, and data analytics for businesses and teams.">
+<meta name="twitter:image" content="https://sahilmakhamale.com/assets/og-cover.jpg">
+
+<!-- JSON-LD Person Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Sahil Makhamale",
+  "jobTitle": "Web Developer & Data Analyst",
+  "url": "https://sahilmakhamale.com",
+  "image": "https://sahilmakhamale.com/assets/profile.jpg",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Pune",
+    "addressRegion": "Maharashtra",
+    "addressCountry": "IN"
+  },
+  "sameAs": [
+    "https://linkedin.com/in/sahil-makhamale-440256248",
+    "https://github.com/Sahil-886"
+  ]
+}
+</script>
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%230E1116'/><text x='50' y='68' text-anchor='middle' font-family='serif' font-size='52' font-weight='600' fill='%23C9A96A'>S.</text></svg>">
+
+<!-- Font preloads -->
+<link rel="preload" href="https://fonts.gstatic.com/s/fraunces/v31/6NUh6KKEp6Cz3sFMYIYIwy.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://fonts.gstatic.com/s/manrope/v15/xn7gYHE41ni1AdIRggqxSuXd.woff2" as="font" type="font/woff2" crossorigin>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+<canvas id="hero-canvas" aria-hidden="true"></canvas>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="logo" href="index.html">Sahil<em>.</em></a>
+    <span class="status-badge"><span class="status-dot"></span> Available for work</span>
+    <button class="nav-burger" aria-label="Open menu">☰</button>
+    <div class="nav-links">
+      <a href="index.html" class="current">Home</a>
+      <a href="projects.html">Projects</a>
+      <a href="services.html">Services</a>
+      <a href="about.html">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap audience">
+  <div class="toggle" role="tablist" aria-label="Choose how you'd like to view this portfolio">
+    <button id="btn-business" class="active" role="tab" aria-selected="true">I run a business</button>
+    <button id="btn-recruiter" role="tab" aria-selected="false">I'm hiring a developer</button>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap hero-inner">
+    <span class="eyebrow" id="hero-eyebrow">Web developer &amp; app builder — Pune, India</span>
+    <h1 id="hero-title">Your business deserves to be <em>found, trusted, and booked</em> online.</h1>
+    <p class="sub" id="hero-sub">I build fast, professional websites and apps for businesses in Pune and beyond — with WhatsApp booking, Google visibility, and designs your customers actually enjoy using. Delivered in days, not months.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary" id="cta-primary" href="services.html">Explore services</a>
+      <a class="btn btn-ghost" id="cta-secondary" href="projects.html">See my work</a>
+    </div>
+    <div class="hero-facts">
+      <div class="fact"><div class="n" data-count="4">4+</div><div class="l">Products shipped</div></div>
+      <div class="fact"><div class="n">7 days</div><div class="l">Typical delivery</div></div>
+      <div class="fact"><div class="n">Web · Mobile · AI · Data</div><div class="l">Full stack of skills</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ TECH STACK TICKER ═══ -->
+<div class="ticker-wrap" aria-label="Technologies I work with">
+  <div class="ticker" id="ticker">
+    <span class="ticker-item"><span class="ti">⚛️</span> React</span>
+    <span class="ticker-item"><span class="ti">📱</span> React Native</span>
+    <span class="ticker-item"><span class="ti">🟨</span> JavaScript</span>
+    <span class="ticker-item"><span class="ti">🐍</span> Python</span>
+    <span class="ticker-item"><span class="ti">🗄️</span> SQL / MySQL</span>
+    <span class="ticker-item"><span class="ti">🤖</span> Ollama / LLMs</span>
+    <span class="ticker-item"><span class="ti">📊</span> Pandas</span>
+    <span class="ticker-item"><span class="ti">📈</span> Power BI</span>
+    <span class="ticker-item"><span class="ti">🎨</span> HTML / CSS</span>
+    <span class="ticker-item"><span class="ti">🚀</span> Expo</span>
+    <span class="ticker-item"><span class="ti">🟢</span> Node.js</span>
+    <span class="ticker-item"><span class="ti">📉</span> Matplotlib</span>
+    <!-- Duplicate for seamless loop -->
+    <span class="ticker-item"><span class="ti">⚛️</span> React</span>
+    <span class="ticker-item"><span class="ti">📱</span> React Native</span>
+    <span class="ticker-item"><span class="ti">🟨</span> JavaScript</span>
+    <span class="ticker-item"><span class="ti">🐍</span> Python</span>
+    <span class="ticker-item"><span class="ti">🗄️</span> SQL / MySQL</span>
+    <span class="ticker-item"><span class="ti">🤖</span> Ollama / LLMs</span>
+    <span class="ticker-item"><span class="ti">📊</span> Pandas</span>
+    <span class="ticker-item"><span class="ti">📈</span> Power BI</span>
+    <span class="ticker-item"><span class="ti">🎨</span> HTML / CSS</span>
+    <span class="ticker-item"><span class="ti">🚀</span> Expo</span>
+    <span class="ticker-item"><span class="ti">🟢</span> Node.js</span>
+    <span class="ticker-item"><span class="ti">📉</span> Matplotlib</span>
+  </div>
+</div>
+
+<section class="wrap">
+  <div class="sec-head reveal">
+    <span class="eyebrow">Featured work</span>
+    <h2>Things I've actually shipped</h2>
+    <p>Real projects for real users — not tutorials, not clones.</p>
+  </div>
+  <div class="work-grid">
+    <div class="card reveal">
+      <span class="tag">AI · Mobile app</span>
+      <h3>Sakhi — AI Companion App</h3>
+      <p>A full-featured React Native wellbeing app running a local LLM. Mood tracking, journaling, breathing exercises, Hinglish support, and verified India crisis helplines.</p>
+      <div class="stack"><span>React Native</span><span>Ollama</span><span>Local LLM</span></div>
+    </div>
+    <div class="card reveal">
+      <span class="tag">Client · Travel</span>
+      <h3>Kwigo — Travel Platform Redesign</h3>
+      <p>Complete redesign of a Pune-based group trips and package booking platform — modern layout, stronger brand, and a booking flow built for Indian travellers.</p>
+      <div class="stack"><span>HTML/CSS/JS</span><span>UI Redesign</span><span>Responsive</span></div>
+    </div>
+  </div>
+  <div class="hero-ctas" style="justify-content:center;margin-top:56px">
+    <a class="btn btn-ghost" href="projects.html">View all 6 projects →</a>
+  </div>
+</section>
+
+<!-- ═══ HOW I WORK ═══ -->
+<section class="wrap">
+  <div class="sec-head reveal">
+    <span class="eyebrow">How I work</span>
+    <h2>Simple process, real results</h2>
+    <p>No disappearing acts. You know exactly what's happening at every step.</p>
+  </div>
+  <div class="process-grid">
+    <div class="process-step reveal">
+      <span class="step-icon">💬</span>
+      <div class="step-num">01</div>
+      <h4>Discovery call</h4>
+      <p>We discuss your business, goals, and what you need — 15 minutes, no cost.</p>
+    </div>
+    <div class="process-step reveal">
+      <span class="step-icon">🎨</span>
+      <div class="step-num">02</div>
+      <h4>Design &amp; prototype</h4>
+      <p>I create a sample homepage for your business — you see real design before paying.</p>
+    </div>
+    <div class="process-step reveal">
+      <span class="step-icon">⚡</span>
+      <div class="step-num">03</div>
+      <h4>Build &amp; iterate</h4>
+      <p>Development with daily updates. You review progress and request changes along the way.</p>
+    </div>
+    <div class="process-step reveal">
+      <span class="step-icon">🚀</span>
+      <div class="step-num">04</div>
+      <h4>Launch &amp; support</h4>
+      <p>We go live together. I handle deployment, DNS, and post-launch fixes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS ═══ -->
+<section class="wrap">
+  <div class="sec-head reveal">
+    <span class="eyebrow">Testimonials</span>
+    <h2>What clients say</h2>
+    <p>Feedback from people I've worked with.</p>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial reveal">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-quote">{QUOTE — e.g. "Sahil delivered our website in under a week. The design was clean, professional, and our customers started booking through WhatsApp the same day we launched."}</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">{C}</div>
+        <div class="testimonial-info">
+          <span class="testimonial-name">{CLIENT NAME}</span>
+          <span class="testimonial-role">{BUSINESS}</span>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial reveal">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-quote">{QUOTE — e.g. "Very responsive and easy to work with. He understood our requirements quickly and the final product exceeded our expectations."}</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">{C}</div>
+        <div class="testimonial-info">
+          <span class="testimonial-name">{CLIENT NAME}</span>
+          <span class="testimonial-role">{BUSINESS}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="about-grid">
+    <div class="reveal">
+      <span class="eyebrow">About me</span>
+      <h2 style="font-family:'Fraunces',serif;font-weight:500;font-size:clamp(1.7rem,3.4vw,2.4rem);margin-bottom:20px">Builder first. Everything else second.</h2>
+      <p>I'm <strong>Sahil Makhamale</strong> — a developer in Pune who works across websites, mobile apps, AI integration, and data analytics. I measure myself by one thing: <strong>shipping real products people actually use.</strong></p>
+      <p style="margin-top:16px">B.Tech IT student, published author, and freelance builder with live client work across travel and hospitality.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-ghost" href="about.html">More about me →</a>
+      </div>
+    </div>
+    <div class="photo-frame reveal">
+      <span class="initials">SM</span>
+      <img src="assets/profile.jpg" alt="Sahil Makhamale" loading="lazy" width="340" height="425" onerror="this.style.display='none'">
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap reveal">
+    <span class="eyebrow">Let's talk</span>
+    <h2>Send me a message — it lands straight in my inbox.</h2>
+    <p>Tell me about your project or opportunity. I reply within a day.</p>
+
+    <!-- FormSubmit: emails submissions to you, works on any static host.
+         IMPORTANT: the FIRST time someone submits, FormSubmit sends a
+         confirmation link to your email — click it once to activate. -->
+    <form class="form" action="https://formsubmit.co/sahilmakhamale88@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New enquiry from your portfolio">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <div>
+        <label for="f-name">Your name</label>
+        <input id="f-name" type="text" name="name" required placeholder="e.g. Rajesh Sharma">
+      </div>
+      <div>
+        <label for="f-email">Your email</label>
+        <input id="f-email" type="email" name="email" required placeholder="you@example.com">
+      </div>
+      <div>
+        <label for="f-msg">Message</label>
+        <textarea id="f-msg" name="message" required placeholder="Tell me about your business, project, or role..."></textarea>
+      </div>
+      <button class="btn btn-primary" type="submit" style="justify-content:center">Send message</button>
+    </form>
+
+    <div class="hero-ctas" style="justify-content:center;margin-top:34px">
+      <a class="btn btn-ghost btn-sm" href="https://wa.me/917262854580" aria-label="Message on WhatsApp">WhatsApp</a>
+      <a class="btn btn-ghost btn-sm" href="https://linkedin.com/in/sahil-makhamale-440256248" target="_blank" rel="noopener" aria-label="View LinkedIn profile">LinkedIn</a>
+      <a class="btn btn-ghost btn-sm" href="https://github.com/Sahil-886" target="_blank" rel="noopener" aria-label="View GitHub profile">GitHub</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span>© 2026 Sahil Makhamale — Pune, India</span>
+    <span class="mono">Built by hand. No templates.</span>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script src="js/main.js"></script>
+</body>
+</html>
