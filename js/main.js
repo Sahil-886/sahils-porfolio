@@ -234,76 +234,76 @@ if (bttBtn) {
   });
 }
 
-/* ---------- Three.js hero particle field (mobile-optimized & perf-focused) ---------- */
+/* ---------- Three.js 3D Wireframe hero background ---------- */
 function initHeroCanvas() {
-  const canvas = document.getElementById('hero-canvas');
-  if (!canvas) return;
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  if (typeof THREE === 'undefined') return; // CDN failed — page works fine without it
+  const canvas = document.getElementById('hero-bg') || document.getElementById('hero-canvas');
+  if (!canvas || typeof THREE === 'undefined') return;
 
-  const isMobile = window.innerWidth < 768;
-  const COUNT = isMobile ? 350 : 900;
+  // --- tuning knobs ---
+  const BRASS   = 0xc9a24a;   // wireframe colour
+  const OPACITY = 0.55;       // 0.35 subtle … 0.8 bold
+  const SPIN    = 0.004;      // rotation speed
+  const OFFSET  = 1.35;       // horizontal position on desktop (0 = centred)
 
-  const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false, powerPreference: 'low-power' });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, isMobile ? 1.25 : 1.5));
+  let renderer;
+  try { renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true }); }
+  catch (e) { canvas.style.display = 'none'; return; }   // no WebGL → CSS bg shows
+  renderer.setClearColor(0x000000, 0);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 
-  const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(60, 1, 0.1, 100);
-  camera.position.z = 12;
+  const scene  = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 100);
+  camera.position.z = 5;
 
-  const geo = new THREE.BufferGeometry();
-  const pos = new Float32Array(COUNT * 3);
-  for (let i = 0; i < COUNT; i++) {
-    pos[i * 3]     = (Math.random() - 0.5) * 34;
-    pos[i * 3 + 1] = (Math.random() - 0.5) * 18;
-    pos[i * 3 + 2] = (Math.random() - 0.5) * 14;
-  }
-  geo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-  const mat = new THREE.PointsMaterial({
-    color: 0xC9A96A, size: isMobile ? 0.055 : 0.045,
-    transparent: true, opacity: 0.5, depthWrite: false
-  });
-  const points = new THREE.Points(geo, mat);
-  scene.add(points);
+  const group = new THREE.Group();
+  scene.add(group);
+  group.add(new THREE.Mesh(
+    new THREE.TorusKnotGeometry(1.0, 0.32, 150, 18),
+    new THREE.MeshBasicMaterial({ color: BRASS, wireframe: true, transparent: true, opacity: OPACITY })
+  ));
 
-  let mouseX = 0, mouseY = 0;
-  if (!isMobile) {
-    window.addEventListener('pointermove', e => {
-      mouseX = (e.clientX / window.innerWidth) - 0.5;
-      mouseY = (e.clientY / window.innerHeight) - 0.5;
-    }, { passive: true });
-  }
+  let px = 0, py = 0;
+  window.addEventListener('pointermove', e => {
+    px = (e.clientX / window.innerWidth - 0.5) * 2;
+    py = (e.clientY / window.innerHeight - 0.5) * 2;
+  }, { passive: true });
 
+  const host = canvas.parentElement || document.body;               // sizes to your hero section
   function resize() {
-    const w = window.innerWidth, h = window.innerHeight;
+    const w = host.clientWidth, h = host.clientHeight;
     renderer.setSize(w, h, false);
-    camera.aspect = w / h;
-    camera.updateProjectionMatrix();
+    camera.aspect = w / h; camera.updateProjectionMatrix();
+    group.position.x = w > 760 ? OFFSET : 0;
+    group.scale.setScalar(w > 760 ? 1 : 0.82);
   }
-  resize();
-  window.addEventListener('resize', resize, { passive: true });
+  window.addEventListener('resize', resize, { passive: true }); resize();
 
-  let heroVisible = true, raf = null;
-  const heroIO = new IntersectionObserver(en => { heroVisible = en[0].isIntersecting; manage(); }, { threshold: 0 });
-  const heroContainer = canvas.parentElement || document.body;
-  heroIO.observe(heroContainer);
-  document.addEventListener('visibilitychange', manage);
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  function manage() {
-    const shouldRun = heroVisible && !document.hidden;
-    if (shouldRun && raf === null) loop();
-    if (!shouldRun && raf !== null) { cancelAnimationFrame(raf); raf = null; }
-  }
-  function loop() {
-    points.rotation.y += 0.0008;
-    points.rotation.x += 0.0002;
-    camera.position.x += ((mouseX * 1.4) - camera.position.x) * 0.03;
-    camera.position.y += ((-mouseY * 0.8) - camera.position.y) * 0.03;
-    camera.lookAt(scene.position);
+  function frame() {
+    group.rotation.y += SPIN;
+    group.rotation.x += (py * 0.3 - group.rotation.x) * 0.04;
+    camera.position.x += (px * 0.4 - camera.position.x) * 0.04;
+    camera.lookAt(group.position.x, 0, 0);
     renderer.render(scene, camera);
-    raf = requestAnimationFrame(loop);
   }
-  manage();
+
+  // pause render loop when off-screen or tab hidden
+  let onScreen = true, running = false;
+  function loop() {
+    if (running || reduced) return; running = true;
+    (function tick() {
+      if (!onScreen || document.hidden) { running = false; return; }
+      frame(); requestAnimationFrame(tick);
+    })();
+  }
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(es => { onScreen = es[0].isIntersecting; loop(); }, { threshold: 0 }).observe(host);
+  }
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) loop(); });
+
+  if (reduced) frame();   // static frame for reduced motion
+  else loop();
 }
 
 if ('requestIdleCallback' in window) {

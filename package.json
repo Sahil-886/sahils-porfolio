@@ -1,0 +1,13 @@
+{
+  "name": "sahils-portfolio",
+  "version": "1.0.0",
+  "description": "Sahil's Portfolio Website",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx -y serve .",
+    "start": "npx -y serve ."
+  },
+  "keywords": [],
+  "author": "Sahil Devendra Makhamale",
+  "license": "ISC"
+}
