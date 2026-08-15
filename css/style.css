@@ -102,6 +102,7 @@ nav{
 /* ---------- Hero ---------- */
 header.hero{position:relative;padding:100px 0 120px;border-bottom:1px solid var(--line);overflow:hidden;display:flex;align-items:center;min-height:80vh}
 #hero-bg{position:absolute;inset:0;z-index:0;display:block;width:100%;height:100%}
+#hero-canvas{position:fixed;inset:0;width:100vw;height:100vh;z-index:-1;pointer-events:none;opacity:.22}
 header.hero > *:not(#hero-bg){position:relative;z-index:2}
 header.hero::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(50% 55% at 68% 45%,rgba(201,169,106,.12),transparent 70%)}
 header.hero::after{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(14,17,22,.8) 0%,rgba(14,17,22,.35) 45%,transparent 70%)}

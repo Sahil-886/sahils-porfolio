@@ -268,9 +268,11 @@ function initHeroCanvas() {
     py = (e.clientY / window.innerHeight - 0.5) * 2;
   }, { passive: true });
 
-  const host = canvas.parentElement || document.body;               // sizes to your hero section
+  const host = canvas.parentElement || document.body;
   function resize() {
-    const w = host.clientWidth, h = host.clientHeight;
+    const isFixed = canvas.id === 'hero-canvas';
+    const w = isFixed ? window.innerWidth : host.clientWidth;
+    const h = isFixed ? window.innerHeight : host.clientHeight;
     renderer.setSize(w, h, false);
     camera.aspect = w / h; camera.updateProjectionMatrix();
     group.position.x = w > 760 ? OFFSET : 0;
