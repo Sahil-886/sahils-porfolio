@@ -208,7 +208,7 @@ section{padding:108px 0;border-bottom:1px solid var(--line)}
 .reveal.stagger-6{transition-delay:.48s}
 
 /* ---------- Services ---------- */
-.svc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .svc{
   background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:32px;
   display:flex;flex-direction:column;gap:0;
@@ -275,7 +275,7 @@ section{padding:108px 0;border-bottom:1px solid var(--line)}
 
 /* ---------- Capabilities Grid ---------- */
 .capabilities-sec{padding:88px 0}
-.capabilities-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.capabilities-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .cap-card{
   background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
   padding:26px 22px;display:flex;flex-direction:column;gap:16px;
@@ -323,7 +323,7 @@ section{padding:108px 0;border-bottom:1px solid var(--line)}
 
 /* ---------- Tech stack ticker ---------- */
 .ticker-wrap{
-  overflow:hidden;padding:32px 0;border-bottom:1px solid var(--line);
+  overflow:hidden;padding:32px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
   position:relative;
 }
 .ticker-wrap::before,.ticker-wrap::after{
@@ -369,7 +369,7 @@ section{padding:108px 0;border-bottom:1px solid var(--line)}
 .step-icon{font-size:1.5rem;margin-bottom:10px;display:block}
 
 /* ---------- Testimonials ---------- */
-.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.testimonials-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
 .testimonial{
   background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
   padding:32px;display:flex;flex-direction:column;gap:16px;position:relative;
@@ -509,6 +509,7 @@ details summary:focus-visible{outline:2px solid var(--brass);outline-offset:2px;
 
 /* ========== TABLET & SMALL DESKTOP (<= 900px) ========== */
 @media (max-width:900px){
+  .svc-grid{grid-template-columns:repeat(2,1fr);gap:20px}
   .price-grid{grid-template-columns:repeat(2,1fr);gap:20px}
   .testimonials-grid{grid-template-columns:repeat(2,1fr);gap:20px}
   .capabilities-grid{grid-template-columns:repeat(2,1fr);gap:18px}

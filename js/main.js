@@ -40,18 +40,18 @@ if (btnB && btnR) {
       facts: [
         { n: "4", l: "Live Client Sites" },
         { n: "7 days", l: "Typical Delivery" },
-        { n: "Web · Mobile · AI · Data", l: "Full-Stack Range" },
+        { n: "Web · Mobile · AI", l: "Full-Stack Range" },
         { n: "Pune & Remote", l: "Dedicated Support" }
       ]
     },
     recruiter: {
       eyebrow: "Full-Stack Engineer — Web · Mobile · AI · WebGL",
       title: 'I ship <em>production apps solo</em>, from WebGL to on-device LLMs.',
-      sub: "Full-stack developer fluent in Next.js 15, React Native, Three.js/WebGL, Python analytics, and local LLMs (Ollama). Shipped live client platforms, offline-first AI apps, and data models — all built with clean, production-ready code.",
+      sub: "Full-stack developer fluent in Next.js 15, React Native, Three.js/WebGL, and local LLMs (Ollama). Shipped live client platforms, offline-first AI apps, and custom web applications — all built with clean, production-ready code.",
       ctaPrimary: { text: "View GitHub", href: "https://github.com/Sahil-886", external: true },
       ctaSecondary: { text: "Connect on LinkedIn", href: "https://linkedin.com/in/sahil-makhamale-440256248", external: true },
       facts: [
-        { n: "6+", l: "Shipped Projects" },
+        { n: "4+", l: "Shipped Projects" },
         { n: "Next.js · RN · LLM", l: "Tech Stack Depth" },
         { n: "3D WebGL & Local AI", l: "Specialized Engineering" },
         { n: "B.Tech IT '27", l: "PCU Pune" }
